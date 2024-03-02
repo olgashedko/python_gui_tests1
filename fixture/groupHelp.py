@@ -37,9 +37,7 @@ class GroupHelper:
         self.delete_group_window = self.app.application.window(title="Delete group")
         self.delete_group_window.wait("visible")
         self.delete_group_window.window(auto_id="uxOKAddressButton").click()
-
-
-      #  self.close_group_editor()
+        self.close_group_editor()
 
     def open_group_editor(self):
         self.app.main_window.window(auto_id="groupButton").click()
