@@ -1,3 +1,6 @@
+import time
+
+
 class GroupHelper:
     def __init__(self, app):
         self.app = app
@@ -21,19 +24,11 @@ class GroupHelper:
     def delete_group_by_index(self, index):
         self.open_group_editor()
         tree = self.group_editor.window(auto_id="uxAddressTreeView")
-        print(index)
+        tree.wait("visible")
         nodes = tree.tree_root().children()
-        print(nodes[index].text())
         nodes[index].click()
-        # for node in root.children():
-        #     print(node.text())
-        #    if node.text() == name:
-        #        print("str")
-        #       node.click()
-      #  group_list = [node.text() for node in root.children()]
-     #   self.group_editor.window(title=name).click()
+        time.sleep(0.2)
         self.group_editor.window(auto_id="uxDeleteAddressButton").click()
-     #   delete_group_window = self.group_editor.window(title="Delete group")
         self.delete_group_window = self.app.application.window(title="Delete group")
         self.delete_group_window.wait("visible")
         self.delete_group_window.window(auto_id="uxOKAddressButton").click()
